@@ -18,7 +18,7 @@ force is assumed to have only low frequency components, therefore a filter with 
 * Its activity label.
 * An identifier of the subject who carried out the experiment.
 
-### The dataset includes the following files:
+### The raw dataset includes the following files:
 
 * 'features.txt': List of all features.
 * 'activity_labels.txt': Links the class labels with their activity name.
@@ -35,8 +35,85 @@ The following files are available for the train and test data. Their description
 ### Transformations or work that the script performed to clean up the data
 
 * Step 1 - the script download the data and unzip it by using download.file() and unzip().
-* Step 2 - the script is reading the data sets into R via read.file().
+* Step 2 - the script is reading the raw data sets into R via read.file().
 * Step 3 - here the script joins both test and training data together with their proper labels, subjects and activitiy labels. Therefor the script is clipping the test-Subject and train-Subject together using rbind(). Put the train and test labels together and merge them with activity_labels.In the next line the script combines the x-train and the x-test data in order to be able to put all three data sets together to one big data set using cbind().
 * Step 4- For this asignment it is required to extract only the measurements on the mean and standard diviation for each measurement. In order to this, the script is using grep() to search for matches to argument pattern (here mean() and sd()) within each element of a character vector. To get excat matching, the script use Fixed = TRUE. Then the script extract only the relevant columns from the big data set. 
 * Step 5 - Create a second, independant tidy data set with the average of each variable for each activity and each subject. Herefor, the script install the reshape2 package to use melt(). After melt() and dcast the data set into x. The resulting data set is written a tidy data set using write.table().
 * Step 6 -  the script prints the tidy data set.
+
+
+### Data after Transformation
+Subject_all
+         1...30
+       
+label_names
+        WALKING_DOWNSTAIRS; wALKING_UPSTAIRS; WALKING; SITTING; LAYING; STANDING
+
+tBodyAcc-mean()-X 
+tBodyAcc-mean()-Y 
+tBodyAcc-mean()-Z 
+tGravityAcc-mean()-X 
+tGravityAcc-mean()-Y
+tGravityAcc-mean()-Z 
+tBodyAccJerk-mean()-X 
+tBodyAccJerk-mean()-Y 
+tBodyAccJerk-mean()-Z 
+tBodyGyro-mean()-X 
+tBodyGyro-mean()-Y
+tBodyGyro-mean()-Z 
+tBodyGyroJerk-mean()-X 
+tBodyGyroJerk-mean()-Y 
+tBodyGyroJerk-mean()-Z 
+tBodyAccMag-mean() 
+tGravityAccMag-mean()
+tBodyAccJerkMag-mean() 
+tBodyGyroMag-mean() 
+tBodyGyroJerkMag-mean() 
+fBodyAcc-mean()-X 
+fBodyAcc-mean()-Y 
+fBodyAcc-mean()-Z
+fBodyAccJerk-mean()-X 
+fBodyAccJerk-mean()-Y 
+fBodyAccJerk-mean()-Z 
+fBodyGyro-mean()-X 
+fBodyGyro-mean()-Y 
+fBodyGyro-mean()-Z
+fBodyAccMag-mean() 
+fBodyBodyAccJerkMag-mean() 
+fBodyBodyGyroMag-mean() 
+fBodyBodyGyroJerkMag-mean() 
+tBodyAcc-std()-X
+tBodyAcc-std()-Y 
+tBodyAcc-std()-Z 
+tGravityAcc-std()-X 
+tGravityAcc-std()-Y 
+tGravityAcc-std()-Z 
+tBodyAccJerk-std()-X
+tBodyAccJerk-std()-Y 
+tBodyAccJerk-std()-Z 
+tBodyGyro-std()-X 
+tBodyGyro-std()-Y
+tBodyGyroJerk-std()-Y 
+tBodyGyroJerk-std()-Z 
+tBodyAccMag-std() 
+tGravityAccMag-std() 
+tBodyAccJerkMag-std() 
+tBodyGyroMag-std()
+tBodyGyroJerkMag-std() 
+fBodyAcc-std()-X 
+fBodyAcc-std()-Y
+fBodyAcc-std()-Z 
+fBodyAccJerk-std()-X 
+fBodyAccJerk-std()-Y
+fBodyAccJerk-std()-Z 
+fBodyGyro-std()-X 
+fBodyGyro-std()-Y 
+fBodyGyro-std()-Z 
+fBodyAccMag-std() 
+fBodyBodyAccJerkMag-std()
+fBodyBodyGyroMag-std() 
+fBodyBodyGyroJerkMag-std()
+tBodyGyro-std()-Z 
+tBodyGyroJerk-std()-X
+
+
